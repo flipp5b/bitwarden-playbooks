@@ -1,0 +1,18 @@
+---
+- name: Update Bitwarden
+  block:
+    - name: Update script
+      command:
+        cmd: ./bitwarden.sh updateself
+        chdir: "{{ bitwarden_dir }}"
+    - name: Update images
+      command:
+        cmd: ./bitwarden.sh update
+        chdir: "{{ bitwarden_dir }}"
+      register: bitwarden_update_out
+    - debug:
+        var: bitwarden_update_out.stdout_lines
+      when: bitwarden_print_stdout
+  when:
+    - bitwarden_update is defined
+    - bitwarden_update

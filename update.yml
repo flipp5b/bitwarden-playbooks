@@ -1,0 +1,10 @@
+---
+- name: Update Bitwarden
+  hosts: all
+  gather_facts: no
+  vars:
+    bitwarden_update: yes
+    bitwarden_print_stdout: yes
+  tasks:
+    - import_role:
+        name: bitwarden

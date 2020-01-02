@@ -1,0 +1,4 @@
+---
+bitwarden_dir: /opt/bitwarden
+bitwarden_update: false
+bitwarden_print_stdout: false
